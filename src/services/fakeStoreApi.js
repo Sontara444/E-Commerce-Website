@@ -16,6 +16,6 @@ const FakeStoreApi = {
         return result.filter((product) => product.title.toLowerCase().includes(query))
     }
 }
-
+ 
 export {FakeStoreApi}
 
