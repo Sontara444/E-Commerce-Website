@@ -1,5 +1,14 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
-const Navbar = () => {
+
+
+const Navbar = ({onSearch, cartItemCount}) => {
+
+  const [searchQuery, setSearchQuery] = useState('')
+
+  const handleSubmit = () =>{
+    
+  }
   return (
     <div className="wrapper">
       <header className="container">
@@ -11,9 +20,10 @@ const Navbar = () => {
             <div className="formContainer">
               <form className="search">
                 <div className="form-control">
-                  <input type="text" placeholder="Search products" />
+                  <input type="text" value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)} placeholder="Search products" />
                 </div>
-                <button type="button" className="search-btn">
+                <button type="button" className="search-btn"
+                onClick={handleSubmit}>
                   Search
                 </button>
               </form>
