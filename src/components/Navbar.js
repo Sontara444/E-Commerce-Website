@@ -7,7 +7,10 @@ const Navbar = ({onSearch, cartItemCount}) => {
   const [searchQuery, setSearchQuery] = useState('')
 
   const handleSubmit = () =>{
-    
+    if(searchQuery.trim().length) {
+      onSearch(searchQuery.trim())
+    }
+    setSearchQuery('')
   }
   return (
     <div className="wrapper">
@@ -30,6 +33,13 @@ const Navbar = ({onSearch, cartItemCount}) => {
             </div>
             <Link to="/cart" className="link headerCart">
               <img src="shopping-cart.png" alt="cart" className="cartImg" />
+              {cartItemCount > 0 && (
+                <div className="cartCounter">
+                  {
+                    cartItemCount < 9 ? cartItemCount : "9+"
+                  }
+                </div>
+              )}
             </Link>
           </div>
         </div>
